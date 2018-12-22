@@ -628,6 +628,10 @@ export default class WaveSurfer extends util.Observer {
             this.peakCache = new PeakCache();
         }
     }
+    
+    setScroll(position) {
+        this.drawer.setScroll(position);
+    }
 
     /**
      * Get the duration of the audio clip
@@ -1122,7 +1126,10 @@ export default class WaveSurfer extends util.Observer {
         this.drawBuffer();
         this.drawer.progress(this.backend.getPlayedPercents());
 
-        this.drawer.recenter(this.getCurrentTime() / this.getDuration());
+        if(this.params.autoCenter) {
+            this.drawer.recenter(this.getCurrentTime() / this.getDuration());
+        }
+
         this.fireEvent('zoom', pxPerSec);
     }
 

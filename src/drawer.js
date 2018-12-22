@@ -160,6 +160,10 @@ export default class Drawer extends util.Observer {
             ? this.drawBars(peaks, 0, start, end)
             : this.drawWave(peaks, 0, start, end);
     }
+    
+    setScroll(position) {
+        this.wrapper.scrollLeft = position;
+    }
 
     /**
      * Scroll to the beginning
