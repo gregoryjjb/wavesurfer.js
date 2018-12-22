@@ -629,6 +629,10 @@ export default class WaveSurfer extends util.Observer {
         }
     }
     
+    /**
+     * Scroll to a position
+     * @param {number} position The position to scroll too
+     */
     setScroll(position) {
         this.drawer.setScroll(position);
     }
